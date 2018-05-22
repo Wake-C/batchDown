@@ -63,12 +63,14 @@ class DownloadThread extends Thread {
  */
     public static  void download( String filePath, String destination, String fileName, int threadNum ) {
 	try {
+	    //20秒下载一个视频
+	    Thread.sleep(20000);
 	    //通过下载路径获取连接
 	    URL url = new URL( filePath );
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    //设置连接的相关属性
 	    conn.setRequestMethod( "GET" );
-	    conn.setReadTimeout( 5000 )   ;
+	    conn.setReadTimeout( 5000 );
 	    //判断连接是否正确。
 	    if ( conn.getResponseCode() == 200 ) {
 		// 获取文件大小。
@@ -83,17 +85,14 @@ class DownloadThread extends Thread {
 		int block = fileSize % threadNum == 0 ? fileSize / threadNum : fileSize / threadNum + 1;
 		for ( int threadId = 0; threadId < threadNum; threadId++ ) {
 		    //传入线程编号，并开始下载。
-		    new DownloadThread( threadId, block, file, url,fileName ).start();
+		    new DownloadThread( threadId, block, file, url, fileName ).start();
 		}
 
 	    }
-	} catch ( MalformedURLException e ) {
-	    e.printStackTrace();
-	} catch ( IOException e ) {
+	} catch ( Exception e ) {
 	    e.printStackTrace();
 	}
     }
-
     /**
      *
      * @param COURSEURL   课程地址

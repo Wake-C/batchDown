@@ -4,15 +4,6 @@ public class runDown163_kehanxueyuan_Math {
 
     public static void main( String[] args ) throws IOException {
 	    String COURSEURL[] ={
-			"http://open.163.com/special/Khan/additionandsubtraction.html",
-			"http://open.163.com/special/Khan/multiplication.html",
-			"http://open.163.com/special/Khan/negative.html",
-			"http://open.163.com/special/Khan/value.html",
-			"http://open.163.com/special/Khan/multiples.html",
-			"http://open.163.com/special/Khan/decimals.html",
-			"http://open.163.com/special/Khan/fractions.html",
-			"http://open.163.com/special/Khan/ratios.html",
-			"http://open.163.com/special/Khan/ratiosproportions.html",
 			"http://open.163.com/special/Khan/exponents.html",
 			"http://open.163.com/special/Khan/number.html",
 			"http://open.163.com/special/Khan/algebra.html",
@@ -35,7 +26,7 @@ public class runDown163_kehanxueyuan_Math {
 			"http://open.163.com/special/Khan/moderncryptography.html",
 			"http://open.163.com/special/Khan/doodlinginmath.html",
 			"http://open.163.com/special/Khan/brainteasers.html"}; //课程地址
-	 String destinationUrl= "D:/course/";
+	 String destinationUrl= "D:/kehan/";
 	  DownloadThread.downOpen163(COURSEURL,destinationUrl,3);
     }
 
